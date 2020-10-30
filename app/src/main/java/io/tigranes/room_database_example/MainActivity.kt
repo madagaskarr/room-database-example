@@ -7,16 +7,16 @@ import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
 
-    @Inject
-    lateinit var name: String
-
-    lateinit var text: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        text = findViewById(R.id._text)
-        text.text = name
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id._frame_container, HomeFragment.newInstance())
+                .commit()
+        }
+
     }
 }

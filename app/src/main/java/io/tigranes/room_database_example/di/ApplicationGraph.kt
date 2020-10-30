@@ -11,8 +11,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
+    ApplicationModule::class,
     ActivityBuildersModule::class,
-    ApplicationModule::class
+    FragmentBuildersModule::class,
+    ViewModelFactoryModule::class,
+    ViewModelModule::class
 ])
 interface ApplicationGraph: AndroidInjector<MyApplication> {
 
